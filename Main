@@ -1,0 +1,33 @@
+import UIKit
+
+class ViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Create a UIScrollView
+        let scrollView = UIScrollView(frame: view.bounds)
+        scrollView.backgroundColor = .white
+        scrollView.contentSize = CGSize(width: view.bounds.width, height: 800) // Set content size according to your needs
+        
+        // Create content inside the scroll view
+        let contentView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 800))
+        contentView.backgroundColor = .lightGray
+        
+        // Add UI elements to the content view
+        let label = UILabel(frame: CGRect(x: 20, y: 20, width: view.bounds.width - 40, height: 30))
+        label.text = "This is a UILabel inside UIScrollView"
+        contentView.addSubview(label)
+        
+        let imageView = UIImageView(frame: CGRect(x: 20, y: 60, width: view.bounds.width - 40, height: 200))
+        imageView.image = UIImage(named: "yourImage") // Replace "yourImage" with your image name
+        imageView.contentMode = .scaleAspectFit
+        contentView.addSubview(imageView)
+        
+        // Add content view to the scroll view
+        scrollView.addSubview(contentView)
+        
+        // Add the scroll view to the main view
+        view.addSubview(scrollView)
+    }
+}
